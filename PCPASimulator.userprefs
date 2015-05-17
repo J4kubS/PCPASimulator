@@ -1,10 +1,15 @@
 ﻿<Properties StartupItem="PCPASimulator/PCPASimulator.csproj" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="PCPASimulator/Extensions.cs">
+    <Files>
+      <File FileName="PCPASimulator/Extensions.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <AuthorInfo Name="Jakub Šoustar" Email="xsoust02@stud.fit.vutbr.cz" Copyright="Jakub Šoustar" Company="Jakub Šoustar" Trademark="" />
   <MonoDevelop.Ide.ItemProperties.PCPASimulator>
     <MonoDevelop.Ide.CustomExecutionModes />
   </MonoDevelop.Ide.ItemProperties.PCPASimulator>

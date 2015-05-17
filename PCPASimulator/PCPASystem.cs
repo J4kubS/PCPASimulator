@@ -1,4 +1,33 @@
-﻿using System;
+﻿//
+//  Author:
+//    Jakub Šoustar xsoust02@stud.fit.vutbr.cz
+//
+//  Copyright (c) 2015, Jakub Šoustar
+//
+//  All rights reserved.
+//
+//  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+//
+//     * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in
+//       the documentation and/or other materials provided with the distribution.
+//     * Neither the name of the Jakub Šoustar nor the names of its contributors may be used to endorse or promote products
+//       derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+//  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+//  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+//  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+//  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+//  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+//  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -73,8 +102,8 @@ namespace PCPASimulator
 				if (automaton + 1 > root.Elements("PushdownAutomaton").Count())
 					throw new PCPAValidationException(
 						string.Format("Query symbol is referencing a non-existing automaton. Line {0}, Position {1}.",
-							((IXmlLineInfo)symbol).LineNumber,
-							((IXmlLineInfo)symbol).LinePosition));
+							((IXmlLineInfo) symbol).LineNumber,
+							((IXmlLineInfo) symbol).LinePosition));
 
 				querySymbolsMapping.Add(querySymbol, automaton);
 				pushdownSymbols[symbol.Value] = querySymbol;
@@ -87,7 +116,7 @@ namespace PCPASimulator
 
 				var initialStackSymbolValue = automaton.Attribute("InitialStackSymbol").Value;
 				var initialStateValue = automaton.Attribute("InitialState").Value;
-				var acceptingMode = (PushdownAutomaton.AcceptingMode)Enum.Parse(
+				var acceptingMode = (PushdownAutomaton.AcceptingMode) Enum.Parse(
 					                    typeof(PushdownAutomaton.AcceptingMode),
 					                    automaton.Attribute("AcceptingMode").Value);
 
@@ -99,48 +128,48 @@ namespace PCPASimulator
 
 				if (!pushdownSymbols.ContainsKey(initialStackSymbolValue))
 					throw new PCPAValidationException(string.Format("Initial stack symbol is undefined. Line {0}, Position {1}.",
-						((IXmlLineInfo)automaton).LineNumber,
-						((IXmlLineInfo)automaton).LinePosition));
+						((IXmlLineInfo) automaton).LineNumber,
+						((IXmlLineInfo) automaton).LinePosition));
 
 				if (!states.ContainsKey(initialStateValue))
 					throw new PCPAValidationException(string.Format("Initial state is undefined. Line {0}, Position {1}.",
-						((IXmlLineInfo)automaton).LineNumber,
-						((IXmlLineInfo)automaton).LinePosition));
+						((IXmlLineInfo) automaton).LineNumber,
+						((IXmlLineInfo) automaton).LinePosition));
 
 				foreach (var transition in automaton.Element("Transitions").Elements("Transition"))
 				{
 					var topmostSymbolValue = transition.Attribute("TopmostSymbol").Value;
-					var inputSymbolValue = (string)transition.Attribute("InputSymbol");
+					var inputSymbolValue = (string) transition.Attribute("InputSymbol");
 					var oldStateValue = transition.Attribute("OldState").Value;
 					var newStateValue = transition.Attribute("NewState").Value;
 					var topmostSymbolReplacement = new List<PASymbol>();
 
 					if (!pushdownSymbols.ContainsKey(topmostSymbolValue))
 						throw new PCPAValidationException(string.Format("Topmost symbol is undefined. Line {0}, Position {1}.",
-							((IXmlLineInfo)transition).LineNumber,
-							((IXmlLineInfo)transition).LinePosition));
+							((IXmlLineInfo) transition).LineNumber,
+							((IXmlLineInfo) transition).LinePosition));
 
 					if (inputSymbolValue != null && !inputSymbols.ContainsKey(inputSymbolValue))
 						throw new PCPAValidationException(string.Format("Input symbol is undefined. Line {0}, Position {1}.",
-							((IXmlLineInfo)transition).LineNumber,
-							((IXmlLineInfo)transition).LinePosition));
+							((IXmlLineInfo) transition).LineNumber,
+							((IXmlLineInfo) transition).LinePosition));
 
 					if (!states.ContainsKey(oldStateValue))
 						throw new PCPAValidationException(string.Format("Old state is undefined. Line {0}, Position {1}.",
-							((IXmlLineInfo)transition).LineNumber,
-							((IXmlLineInfo)transition).LinePosition));
+							((IXmlLineInfo) transition).LineNumber,
+							((IXmlLineInfo) transition).LinePosition));
 
 					if (!states.ContainsKey(newStateValue))
 						throw new PCPAValidationException(string.Format("New state is undefined. Line {0}, Position {1}.",
-							((IXmlLineInfo)transition).LineNumber,
-							((IXmlLineInfo)transition).LinePosition));
+							((IXmlLineInfo) transition).LineNumber,
+							((IXmlLineInfo) transition).LinePosition));
 
 					foreach (var replacement in transition.Elements("Symbol"))
 					{
 						if (!pushdownSymbols.ContainsKey(replacement.Value))
 							throw new PCPAValidationException(string.Format("Replacement symbol is undefined. Line {0}, Position {1}.",
-								((IXmlLineInfo)replacement).LineNumber,
-								((IXmlLineInfo)replacement).LinePosition));
+								((IXmlLineInfo) replacement).LineNumber,
+								((IXmlLineInfo) replacement).LinePosition));
 
 						topmostSymbolReplacement.Add(pushdownSymbols[replacement.Value]);
 					}
@@ -312,7 +341,8 @@ namespace PCPASimulator
 			schemas.Add(null, XmlReader.Create(
 				Assembly.GetExecutingAssembly().GetManifestResourceStream("PCPASimulator.PCPASchema.xsd")));
 
-			var settings = new XmlReaderSettings {
+			var settings = new XmlReaderSettings
+			{
 				ValidationType = ValidationType.Schema,
 				Schemas = schemas
 			};
