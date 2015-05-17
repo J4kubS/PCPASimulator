@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<PushdownAutomataSystem IsReturning="false">
+	<InputSymbols>
+		<Symbol>a</Symbol>
+		<Symbol>b</Symbol>
+		<Symbol>c</Symbol>
+	</InputSymbols>
+	<PushdownSymbols>
+		<Symbol>a</Symbol>
+		<Symbol>b</Symbol>
+		<Symbol>c</Symbol>
+		<Symbol>z1</Symbol>
+		<Symbol>z2</Symbol>
+	</PushdownSymbols>
+	<QuerySymbols>
+		<Symbol Automaton="2">k2</Symbol>
+	</QuerySymbols>
+	<PushdownAutomaton AcceptingMode="FinalState" InitialState="q1" InitialStackSymbol="z1">
+		<States>
+			<State>q1</State>
+			<State>s1</State>
+			<State>p1</State>
+			<State>p2</State>
+		</States>
+		<FinalStates>
+			<State>pf</State>
+		</FinalStates>
+		<Transitions>
+			<Transition OldState="q1" InputSymbol="a" TopmostSymbol="z1" NewState="q1">
+				<Symbol>z1</Symbol>
+			</Transition>
+			<Transition OldState="q1" InputSymbol="b" TopmostSymbol="z1" NewState="q1">
+				<Symbol>z1</Symbol>
+			</Transition>
+			<Transition OldState="q1" InputSymbol="c" TopmostSymbol="z1" NewState="s1">
+				<Symbol>k2</Symbol>
+				<Symbol>z1</Symbol>
+			</Transition>
+			<Transition OldState="s1" TopmostSymbol="a" NewState="s1">
+				<Symbol>k2</Symbol>
+				<Symbol>a</Symbol>
+			</Transition>
+			<Transition OldState="s1" TopmostSymbol="b" NewState="s1">
+				<Symbol>k2</Symbol>
+				<Symbol>b</Symbol>
+			</Transition>
+			<Transition OldState="s1" TopmostSymbol="z2" NewState="p1" />
+			<Transition OldState="p1" InputSymbol="a" TopmostSymbol="a" NewState="p2" />
+			<Transition OldState="p1" InputSymbol="b" TopmostSymbol="b" NewState="p2" />
+			<Transition OldState="p2" TopmostSymbol="a" NewState="p2" />
+			<Transition OldState="p2" TopmostSymbol="b" NewState="p2" />
+			<Transition OldState="p2" TopmostSymbol="z2" NewState="p1" />
+			<Transition OldState="p1" TopmostSymbol="z1" NewState="pf">
+				<Symbol>z1</Symbol>
+			</Transition>
+		</Transitions>
+	</PushdownAutomaton>
+	<PushdownAutomaton AcceptingMode="FinalState" InitialState="q2" InitialStackSymbol="z2">
+		<States>
+			<State>q2</State>
+			<State>s2</State>
+		</States>
+		<FinalStates>
+			<State>sf</State>
+		</FinalStates>
+		<Transitions>
+			<Transition OldState="q2" InputSymbol="a" TopmostSymbol="z2" NewState="q2">
+				<Symbol>a</Symbol>
+				<Symbol>z2</Symbol>
+			</Transition>
+			<Transition OldState="q2" InputSymbol="b" TopmostSymbol="z2" NewState="q2">
+				<Symbol>b</Symbol>
+				<Symbol>z2</Symbol>
+			</Transition>
+			<Transition OldState="q2" InputSymbol="a" TopmostSymbol="a" NewState="q2">
+				<Symbol>a</Symbol>
+				<Symbol>a</Symbol>
+			</Transition>
+			<Transition OldState="q2" InputSymbol="a" TopmostSymbol="b" NewState="q2">
+				<Symbol>a</Symbol>
+				<Symbol>b</Symbol>
+			</Transition>
+			<Transition OldState="q2" InputSymbol="b" TopmostSymbol="a" NewState="q2">
+				<Symbol>b</Symbol>
+				<Symbol>a</Symbol>
+			</Transition>
+			<Transition OldState="q2" InputSymbol="b" TopmostSymbol="b" NewState="q2">
+				<Symbol>b</Symbol>
+				<Symbol>b</Symbol>
+			</Transition>
+			<Transition OldState="q2" InputSymbol="c" TopmostSymbol="a" NewState="s2">
+				<Symbol>a</Symbol>
+			</Transition>
+			<Transition OldState="q2" InputSymbol="c" TopmostSymbol="b" NewState="s2">
+				<Symbol>b</Symbol>
+			</Transition>
+			<Transition OldState="s2" TopmostSymbol="a" NewState="s2" />
+			<Transition OldState="s2" TopmostSymbol="b" NewState="s2" />
+			<Transition OldState="s2" TopmostSymbol="z2" NewState="sf">
+				<Symbol>z2</Symbol>
+			</Transition>
+			<Transition OldState="sf" InputSymbol="a" TopmostSymbol="z2" NewState="sf">
+				<Symbol>z2</Symbol>
+			</Transition>
+			<Transition OldState="sf" InputSymbol="b" TopmostSymbol="z2" NewState="sf">
+				<Symbol>z2</Symbol>
+			</Transition>
+		</Transitions>
+	</PushdownAutomaton>
+</PushdownAutomataSystem>

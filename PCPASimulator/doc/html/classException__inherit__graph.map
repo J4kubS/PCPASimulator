@@ -1,0 +1,5 @@
+<map id="Exception" name="Exception">
+<area shape="rect" id="node2" href="$classIBP_1_1LexerException.html" title="Represents errors that occur during lexical analysis. " alt="" coords="5,80,144,107"/>
+<area shape="rect" id="node3" href="$classIBP_1_1ParserException.html" title="Represents errors that occur during syntactical analysis. " alt="" coords="168,80,312,107"/>
+<area shape="rect" id="node4" href="$classIBP_1_1PCPAValidationException.html" title="Represents errors that occur during the validation of a XML configuration file for a parallel communi..." alt="" coords="336,80,535,107"/>
+</map>

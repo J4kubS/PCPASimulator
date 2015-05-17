@@ -1,0 +1,11 @@
+﻿<Properties StartupItem="PCPASimulator/PCPASimulator.csproj" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.PCPASimulator>
+    <MonoDevelop.Ide.CustomExecutionModes />
+  </MonoDevelop.Ide.ItemProperties.PCPASimulator>
+</Properties>

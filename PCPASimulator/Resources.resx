@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<data name="Color" type="System.ConsoleColor">
+		<value>Green</value>
+	</data>
+
+	<data name="Help" type="System.String" xml:space="preserve">
+		<value>Usage: mono PCPASimulator.exe&#10;&#10;Use the arrow and return keys to navigate through the application.&#10;The application uses UNICODE characters!</value>
+	</data>
+	<data name="Title" type="System.String">
+		<value>Parallel Communicating Pushdown Automata Systems Simulator</value>
+	</data>
+	<data name="TitleBoxL" type="System.Char">
+		<value>┃</value>
+	</data>
+	<data name="TitleBoxR" type="System.Char">
+		<value>┃</value>
+	</data>
+	<data name="TitleBoxT" type="System.Char">
+		<value>━</value>
+	</data>
+	<data name="TitleBoxB" type="System.Char">
+		<value>━</value>
+	</data>
+	<data name="TitleBoxTL" type="System.Char">
+		<value>┏</value>
+	</data>
+	<data name="TitleBoxTR" type="System.Char">
+		<value>┓</value>
+	</data>
+	<data name="TitleBoxBL" type="System.Char">
+		<value>┗</value>
+	</data>
+	<data name="TitleBoxBR" type="System.Char">
+		<value>┛</value>
+	</data>
+
+	<data name="ResultLinePrefixFormat" type="System.String">
+		<value>│ {0} </value>
+	</data>
+	<data name="ResultAutomatonNFormat" type="System.String" xml:space="preserve">
+		<value>Automaton #{0}:&#10;</value>
+	</data>
+	<data name="ResultReachedWithFormat" type="System.String" xml:space="preserve">
+		<value>   with {0}</value>
+	</data>
+	<data name="ResultAfterRequestedCommunication" type="System.String" xml:space="preserve">
+		<value>   after requested communication</value>
+	</data>
+	<data name="ResultAfterCommunication" type="System.String" xml:space="preserve">
+		<value>   after communication</value>
+	</data>
+
+	<data name="MenuHeadline" type="System.String">
+		<value>Please choose one of the following options:</value>
+	</data>
+	<data name="MenuSelector" type="System.String">
+		<value>▶</value>
+	</data>
+	<data name="PromptHeadline" type="System.String">
+		<value>Please enter the information:</value>
+	</data>
+
+	<data name="OptionNewSystem" type="System.String">
+		<value>New System</value>
+	</data>
+	<data name="OptionParseInput" type="System.String">
+		<value>Parse a input</value>
+	</data>
+	<data name="OptionReturn" type="System.String">
+		<value>Return</value>
+	</data>
+	<data name="OptionQuit" type="System.String">
+		<value>Quit</value>
+	</data>
+
+	<data name="MenuPromptConfigurationFile" type="System.String">
+		<value>Configuration file: </value>
+	</data>
+	<data name="MenuPromptInput" type="System.String">
+		<value>Input: </value>
+	</data>
+
+	<data name="LexicalError" type="System.String">
+		<value>There was a lexical error, input rejected</value>
+	</data>
+	<data name="InputAccepted" type="System.String">
+		<value>Input was accepted, details follow:</value>
+	</data>
+	<data name="InputRejected" type="System.String">
+		<value>Input was rejected, details follow:.</value>
+	</data>
+	<data name="FileNotFound" type="System.String">
+		<value>File not found.</value>
+	</data>
+</root>

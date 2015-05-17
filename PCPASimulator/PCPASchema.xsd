@@ -1,0 +1,96 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="nonEmptyString">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="acceptingMode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FinalState" />
+			<xs:enumeration value="EmptyStack" />
+			<xs:enumeration value="Both" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="PushdownAutomataSystem">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="InputSymbols">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Symbol" type="nonEmptyString" minOccurs="1" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PushdownSymbols">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Symbol" type="nonEmptyString" minOccurs="1" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="QuerySymbols">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Symbol" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="nonEmptyString">
+											<xs:attribute name="Automaton" use="required">
+												<xs:simpleType>
+													<xs:restriction base="xs:token">
+														<xs:pattern value="[1-9][0-9]*" />
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:attribute>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PushdownAutomaton" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="States">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="nonEmptyString" name="State" minOccurs="1" maxOccurs="unbounded" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="FinalStates">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="nonEmptyString" name="State" minOccurs="0" maxOccurs="unbounded" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Transitions">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Transition" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="nonEmptyString" name="Symbol" minOccurs="0" maxOccurs="unbounded" />
+												</xs:sequence>
+												<xs:attribute type="nonEmptyString" name="OldState" use="required" />
+												<xs:attribute type="nonEmptyString" name="TopmostSymbol" use="required" />
+												<xs:attribute type="nonEmptyString" name="NewState" use="required" />
+												<xs:attribute type="nonEmptyString" name="InputSymbol" use="optional" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute type="acceptingMode" name="AcceptingMode" use="required" />
+						<xs:attribute type="nonEmptyString" name="InitialState" use="required" />
+						<xs:attribute type="nonEmptyString" name="InitialStackSymbol" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute type="xs:boolean" name="IsReturning" use="required" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
